@@ -1,3 +1,5 @@
+// types.ts
+
 export interface Project {
   id: string;
   title: string;
@@ -5,21 +7,12 @@ export interface Project {
   image: string;
   tags: string[];
   featured?: boolean;
-  client?: string;
-  github?: string;
   demo?: string;
-}
-
-export interface Skill {
-  name: string;
-  category: 'frontend' | 'backend' | 'tools' | 'languages';
-  level: 'beginner' | 'intermediate' | 'advanced' | 'expert';
-}
-
-export interface ContactForm {
-  name: string;
-  email: string;
-  message: string;
+  github?: string;
+  client?: string;
+  projectType: 'pyme' | 'corporativo';
+  result?: string; // NUEVO: Para mostrar resultados medibles como "+60% consultas"
+  icon?: string; // NUEVO: Para mostrar un emoji/ícono en el placeholder
 }
 
 export interface Service {
@@ -27,7 +20,12 @@ export interface Service {
   description: string;
   icon: string;
   benefits: string[];
+  includes: string[]; // NUEVO: Qué incluye exactamente el servicio
   ideal: string;
+  price: string;
+  priceNote: string; // NUEVO: Nota sobre el precio
+  delivery: string;
+  popular: boolean; // NUEVO: Para destacar el servicio más vendido
 }
 
 export interface Experience {
@@ -35,11 +33,11 @@ export interface Experience {
   client?: string;
   position: string;
   period: string;
-  location?: string;
+  location: string;
   description: string;
   achievements: string[];
   technologies: string[];
-  logo?: string;
+  type: 'pyme' | 'corporativo';
 }
 
 export interface Education {
@@ -47,29 +45,16 @@ export interface Education {
   degree: string;
   period: string;
   progress?: string;
-  completed?: boolean;
   activities?: string[];
+  completed?: boolean;
 }
 
 export interface Certification {
   title: string;
   issuer: string;
   date: string;
-  hours?: number;
-  credential?: string;
-  url?: string;
-}
-
-export interface WorkStep {
-  step: number;
-  title: string;
-  description: string;
-  duration?: string;
-}
-
-export interface FAQ {
-  question: string;
-  answer: string;
+  hours: number;
+  credential: string;
 }
 
 export interface Stat {
@@ -78,11 +63,25 @@ export interface Stat {
   icon: string;
 }
 
+export interface WorkProcess {
+  step: number;
+  title: string;
+  description: string;
+  duration: string;
+  icon: string; // NUEVO: Para mostrar ícono en cada paso
+}
+
+export interface FAQ {
+  question: string;
+  answer: string;
+}
+
 export interface Testimonial {
   name: string;
-  company: string;
   role: string;
+  company?: string;
   text: string;
-  image?: string;
-  rating?: number;
+  avatar?: string;
+  rating: number;
+  project?: string;
 }
