@@ -1,0 +1,514 @@
+@import '../variables';
+@import '../mixins';
+
+// ============================================
+// CONTACT SECTION
+// ============================================
+.contact {
+  @include section-padding;
+  background: $bg-secondary;
+  
+  @media (prefers-color-scheme: dark) {
+    background: #0f172a;
+  }
+}
+
+.contact__container {
+  @include container;
+}
+
+// Header
+.contact__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contact__title {
+  font-size: $fs-4xl;
+  font-weight: $fw-bold;
+  color: $text-primary;
+  margin-bottom: $spacing-md;
+  
+  @media (min-width: $breakpoint-md) {
+    font-size: $fs-5xl;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    color: white;
+  }
+}
+
+.contact__subtitle {
+  font-size: $fs-xl;
+  color: $text-secondary;
+  max-width: 42rem;
+  margin: 0 auto;
+  
+  @media (prefers-color-scheme: dark) {
+    color: #9ca3af;
+  }
+}
+
+.contact__content {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+// WhatsApp Priority Section
+.contact__whatsapp {
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #10b981, #16a34a);
+  border-radius: $radius-2xl;
+  padding: 2rem;
+  color: white;
+  box-shadow: $shadow-2xl;
+}
+
+.contact__whatsapp-content {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-lg;
+}
+
+.contact__whatsapp-icon-wrapper {
+  flex-shrink: 0;
+}
+
+.contact__whatsapp-icon {
+  width: 4rem;
+  height: 4rem;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  border-radius: $radius-2xl;
+  @include flex-center;
+  
+  svg {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+.contact__whatsapp-text {
+  flex: 1;
+}
+
+.contact__whatsapp-header {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-sm;
+}
+
+.contact__whatsapp-title {
+  font-size: $fs-2xl;
+  font-weight: $fw-bold;
+}
+
+.contact__whatsapp-badge {
+  padding: 0.25rem 0.75rem;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  border-radius: $radius-full;
+  font-size: $fs-xs;
+  font-weight: $fw-bold;
+}
+
+.contact__whatsapp-description {
+  color: #d1fae5;
+  margin-bottom: $spacing-md;
+  font-size: $fs-lg;
+}
+
+.contact__whatsapp-features {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-lg;
+  font-size: $fs-sm;
+  color: #d1fae5;
+}
+
+.contact__whatsapp-feature {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+.contact__whatsapp-button {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-md $spacing-2xl;
+  background: white;
+  color: #16a34a;
+  border-radius: $radius-xl;
+  font-weight: $fw-bold;
+  text-decoration: none;
+  box-shadow: $shadow-lg;
+  transition: all $transition-base;
+  
+  &:hover {
+    background: #f0fdf4;
+    transform: scale(1.05);
+  }
+  
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+// Divider
+.contact__divider {
+  position: relative;
+  margin: 2rem 0;
+}
+
+.contact__divider-line {
+  position: absolute;
+  inset: 0;
+  @include flex-center;
+}
+
+.contact__divider-border {
+  width: 100%;
+  border-top: 1px solid #d1d5db;
+  
+  @media (prefers-color-scheme: dark) {
+    border-color: #334155;
+  }
+}
+
+.contact__divider-text-wrapper {
+  position: relative;
+  @include flex-center;
+  font-size: $fs-sm;
+}
+
+.contact__divider-text {
+  padding: 0 $spacing-md;
+  background: $bg-secondary;
+  color: $text-light;
+  
+  @media (prefers-color-scheme: dark) {
+    background: #0f172a;
+    color: #9ca3af;
+  }
+}
+
+// Main Grid (Form + Info)
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// Contact Info Sidebar
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+}
+
+.contact__info-title {
+  font-size: $fs-2xl;
+  font-weight: $fw-bold;
+  color: $text-primary;
+  margin-bottom: $spacing-lg;
+  
+  @media (prefers-color-scheme: dark) {
+    color: white;
+  }
+}
+
+.contact__info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-md;
+  margin-bottom: $spacing-lg;
+}
+
+.contact__info-icon {
+  width: 3rem;
+  height: 3rem;
+  background: #dbeafe;
+  border-radius: $radius-lg;
+  @include flex-center;
+  flex-shrink: 0;
+  
+  @media (prefers-color-scheme: dark) {
+    background: rgba(37, 99, 235, 0.2);
+  }
+  
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: $primary;
+    
+    @media (prefers-color-scheme: dark) {
+      color: #60a5fa;
+    }
+  }
+}
+
+.contact__info-content {
+  flex: 1;
+}
+
+.contact__info-label {
+  font-weight: $fw-semibold;
+  color: $text-primary;
+  margin-bottom: 0.25rem;
+  
+  @media (prefers-color-scheme: dark) {
+    color: white;
+  }
+}
+
+.contact__info-value {
+  color: $primary;
+  text-decoration: none;
+  font-size: $fs-sm;
+  word-break: break-all;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    color: #60a5fa;
+  }
+}
+
+.contact__info-text {
+  color: $text-secondary;
+  font-size: $fs-sm;
+  
+  @media (prefers-color-scheme: dark) {
+    color: #9ca3af;
+  }
+}
+
+.contact__info-note {
+  font-size: $fs-xs;
+  color: $text-light;
+  margin-top: 0.25rem;
+  
+  @media (prefers-color-scheme: dark) {
+    color: #9ca3af;
+  }
+}
+
+// Social Links
+.contact__social {
+  display: flex;
+  gap: $spacing-md;
+}
+
+.contact__social-link {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: $radius-lg;
+  @include flex-center;
+  text-decoration: none;
+  transition: all $transition-base;
+  
+  &--github {
+    background: #1e293b;
+    color: white;
+    
+    &:hover {
+      background: #0f172a;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      background: #334155;
+      
+      &:hover {
+        background: #475569;
+      }
+    }
+  }
+  
+  &--linkedin {
+    background: $primary;
+    color: white;
+    
+    &:hover {
+      background: #1d4ed8;
+    }
+  }
+  
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+// Info Box (Tip)
+.contact__tip {
+  padding: $spacing-md;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: $radius-lg;
+  
+  @media (prefers-color-scheme: dark) {
+    background: rgba(37, 99, 235, 0.1);
+    border-color: rgba(37, 99, 235, 0.3);
+  }
+}
+
+.contact__tip-title {
+  font-weight: $fw-semibold;
+  color: $text-primary;
+  margin-bottom: $spacing-sm;
+  font-size: $fs-sm;
+  
+  @media (prefers-color-scheme: dark) {
+    color: white;
+  }
+}
+
+.contact__tip-text {
+  font-size: $fs-xs;
+  color: $text-secondary;
+  
+  @media (prefers-color-scheme: dark) {
+    color: #9ca3af;
+  }
+}
+
+// Contact Form
+.contact__form-wrapper {
+  background: white;
+  padding: $spacing-lg;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-lg;
+  border: 1px solid #e5e7eb;
+  
+  @media (prefers-color-scheme: dark) {
+    background: #1e293b;
+    border-color: #334155;
+  }
+}
+
+.contact__form-title {
+  font-size: $fs-xl;
+  font-weight: $fw-bold;
+  color: $text-primary;
+  margin-bottom: $spacing-md;
+  
+  @media (prefers-color-scheme: dark) {
+    color: white;
+  }
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.contact__form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact__form-label {
+  display: block;
+  font-size: $fs-sm;
+  font-weight: $fw-medium;
+  color: $text-secondary;
+  margin-bottom: 0.25rem;
+  
+  @media (prefers-color-scheme: dark) {
+    color: #d1d5db;
+  }
+}
+
+.contact__form-input,
+.contact__form-textarea {
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  border: 1px solid #d1d5db;
+  border-radius: $radius-lg;
+  font-size: $fs-sm;
+  transition: all $transition-fast;
+  background: white;
+  color: $text-primary;
+  
+  &:focus {
+    outline: none;
+    border-color: transparent;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    background: #0f172a;
+    border-color: #475569;
+    color: white;
+  }
+}
+
+.contact__form-textarea {
+  resize: none;
+}
+
+.contact__form-button {
+  width: 100%;
+  padding: $spacing-md $spacing-lg;
+  background: $primary;
+  color: white;
+  border-radius: $radius-lg;
+  font-weight: $fw-medium;
+  font-size: $fs-sm;
+  border: none;
+  cursor: pointer;
+  transition: all $transition-base;
+  
+  &:hover:not(:disabled) {
+    background: #1d4ed8;
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// Status Messages
+.contact__status {
+  padding: $spacing-md;
+  border-radius: $radius-lg;
+  font-size: $fs-sm;
+  
+  &--success {
+    background: #d1fae5;
+    border: 1px solid #10b981;
+    color: #065f46;
+    
+    @media (prefers-color-scheme: dark) {
+      background: rgba(16, 185, 129, 0.2);
+      color: #6ee7b7;
+    }
+  }
+  
+  &--error {
+    background: #fee2e2;
+    border: 1px solid #ef4444;
+    color: #991b1b;
+    
+    @media (prefers-color-scheme: dark) {
+      background: rgba(239, 68, 68, 0.2);
+      color: #fca5a5;
+    }
+  }
+}

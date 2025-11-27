@@ -1,0 +1,168 @@
+@import '../variables';
+
+// ============================================
+// TYPOGRAPHY BASE
+// ============================================
+
+body {
+  font-family: $font-primary;
+  font-size: $fs-base;
+  line-height: 1.6;
+  color: $text-primary;
+  font-weight: $fw-normal;
+}
+
+// ============================================
+// HEADINGS
+// ============================================
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $fw-bold;
+  line-height: 1.2;
+  margin-bottom: $spacing-md;
+  color: $text-primary;
+}
+
+h1 {
+  font-size: $fs-5xl;
+  letter-spacing: -0.02em;
+  
+  @media (max-width: $breakpoint-md) {
+    font-size: $fs-4xl;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    font-size: $fs-3xl;
+  }
+}
+
+h2 {
+  font-size: $fs-4xl;
+  letter-spacing: -0.01em;
+  
+  @media (max-width: $breakpoint-md) {
+    font-size: $fs-3xl;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    font-size: $fs-2xl;
+  }
+}
+
+h3 {
+  font-size: $fs-3xl;
+  
+  @media (max-width: $breakpoint-md) {
+    font-size: $fs-2xl;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    font-size: $fs-xl;
+  }
+}
+
+h4 {
+  font-size: $fs-2xl;
+  
+  @media (max-width: $breakpoint-sm) {
+    font-size: $fs-lg;
+  }
+}
+
+h5 {
+  font-size: $fs-xl;
+}
+
+h6 {
+  font-size: $fs-lg;
+}
+
+// ============================================
+// PARAGRAPHS
+// ============================================
+p {
+  margin-bottom: $spacing-md;
+  color: $text-secondary;
+  line-height: 1.7;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// ============================================
+// LINKS
+// ============================================
+a {
+  color: $primary;
+  text-decoration: none;
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: $secondary;
+    text-decoration: none;
+  }
+  
+  &:focus {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+  }
+}
+
+// ============================================
+// TEXT UTILITIES
+// ============================================
+.text-primary {
+  color: $text-primary;
+}
+
+.text-secondary {
+  color: $text-secondary;
+}
+
+.text-light {
+  color: $text-light;
+}
+
+.text-white {
+  color: white;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-gradient {
+  background: $gradient-primary;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// ============================================
+// MONOSPACE
+// ============================================
+code,
+pre,
+.font-mono {
+  font-family: $font-mono;
+}
+
+code {
+  background: $bg-secondary;
+  padding: 0.125rem 0.375rem;
+  border-radius: $radius-sm;
+  font-size: 0.875em;
+  color: $primary;
+}
+
+pre {
+  background: $bg-secondary;
+  padding: $spacing-md;
+  border-radius: $radius-md;
+  overflow-x: auto;
+  
+  code {
+    background: none;
+    padding: 0;
+  }
+}

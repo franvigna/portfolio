@@ -1,0 +1,239 @@
+@import '../variables';
+@import '../mixins';
+
+// ============================================
+// HEADER
+// ============================================
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-fixed;
+  transition: all $transition-base;
+  
+  &.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    box-shadow: $shadow-md;
+    
+    @media (prefers-color-scheme: dark) {
+      background: rgba(15, 23, 42, 0.95);
+    }
+  }
+  
+  &.transparent {
+    background: transparent;
+  }
+}
+
+.header__container {
+  @include container;
+  @include flex-between;
+  height: 4rem; // 64px
+}
+
+// ============================================
+// LOGO
+// ============================================
+.header__logo {
+  @include flex-center;
+  gap: $spacing-sm;
+  text-decoration: none;
+  
+  &:hover .header__logo-icon {
+    transform: scale(1.1);
+  }
+}
+
+.header__logo-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  background: $gradient-primary;
+  border-radius: $radius-lg;
+  @include flex-center;
+  color: white;
+  font-weight: $fw-bold;
+  transition: transform $transition-base;
+}
+
+.header__logo-text {
+  font-weight: $fw-bold;
+  font-size: $fs-lg;
+  transition: color $transition-base;
+  
+  .header.scrolled & {
+    color: $text-primary;
+    
+    @media (prefers-color-scheme: dark) {
+      color: white;
+    }
+  }
+  
+  .header.transparent & {
+    color: white;
+  }
+}
+
+// ============================================
+// DESKTOP NAVIGATION
+// ============================================
+.header__nav {
+  display: none;
+  
+  @include desktop {
+    @include flex-center;
+    gap: 2rem;
+  }
+}
+
+.header__nav-link {
+  font-weight: $fw-medium;
+  transition: color $transition-fast;
+  text-decoration: none;
+  
+  .header.scrolled & {
+    color: $text-secondary;
+    
+    &:hover {
+      color: $primary;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      color: #d1d5db;
+      
+      &:hover {
+        color: #60a5fa;
+      }
+    }
+  }
+  
+  .header.transparent & {
+    color: rgba(255, 255, 255, 0.9);
+    
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+// ============================================
+// WHATSAPP CTA BUTTON
+// ============================================
+.header__cta {
+  @include flex-center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-lg;
+  background: #16a34a; // green-600
+  color: white;
+  border-radius: $radius-lg;
+  font-weight: $fw-medium;
+  text-decoration: none;
+  box-shadow: $shadow-md;
+  transition: all $transition-base;
+  
+  &:hover {
+    background: #15803d; // green-700
+    transform: scale(1.05);
+  }
+  
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+// ============================================
+// MOBILE MENU BUTTON
+// ============================================
+.header__mobile-toggle {
+  display: block;
+  padding: $spacing-sm;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color $transition-fast;
+  
+  @include desktop {
+    display: none;
+  }
+  
+  .header.scrolled & {
+    color: $text-secondary;
+    
+    @media (prefers-color-scheme: dark) {
+      color: #d1d5db;
+    }
+  }
+  
+  .header.transparent & {
+    color: white;
+  }
+  
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+// ============================================
+// MOBILE MENU
+// ============================================
+.header__mobile-menu {
+  display: block;
+  padding: $spacing-md 0;
+  border-top: 1px solid #e5e7eb;
+  background: white;
+  
+  @media (prefers-color-scheme: dark) {
+    background: #0f172a;
+    border-top-color: #334155;
+  }
+  
+  @include desktop {
+    display: none;
+  }
+}
+
+.header__mobile-nav {
+  @include flex-column;
+  gap: $spacing-md;
+}
+
+.header__mobile-link {
+  color: $text-secondary;
+  font-weight: $fw-medium;
+  padding: $spacing-sm 0;
+  text-decoration: none;
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: $primary;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    color: #d1d5db;
+    
+    &:hover {
+      color: #60a5fa;
+    }
+  }
+}
+
+.header__mobile-cta {
+  @include flex-center;
+  justify-content: center;
+  gap: $spacing-sm;
+  padding: $spacing-md $spacing-lg;
+  background: #16a34a;
+  color: white;
+  border-radius: $radius-lg;
+  font-weight: $fw-medium;
+  text-align: center;
+  text-decoration: none;
+  
+  svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
